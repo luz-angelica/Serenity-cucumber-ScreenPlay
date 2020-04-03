@@ -9,9 +9,9 @@ public class ShowTheResultsSearchQuestion implements Question<Boolean> {
     @Override
     public Boolean answeredBy ( Actor actor ) {
         String text = MyElement.TEXT_RESULT_SEARCH.resolveFor(actor).getText();
-        System.out.print(text+"hellooo    ");
+
         if(text.contains("result")) {
-        System.out.print("si retorna true");
+
             return true;
         }
         else {

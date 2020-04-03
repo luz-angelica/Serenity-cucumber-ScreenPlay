@@ -4,17 +4,17 @@ import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import exception.ShowTheResultsSearchException;
 import exception.ShowTheResultsWordException;
 import net.serenitybdd.screenplay.GivenWhenThen;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 import questions.ShowTheResultsSearchQuestion;
 import questions.ShowTheResultsWordQuestion;
+import task.OpenFirstResult;
 import task.SearchInformationOnGoogle;
 import task.TypeIntoTheSearchField;
 import utils.driver.WebDriverUtils;
-import static org.hamcrest.Matchers.equalTo;
-
 
 import static net.serenitybdd.screenplay.actors.OnStage.*;
 
@@ -44,42 +44,59 @@ public class GoogleSearchStepDefinitions {
         theActorInTheSpotlight().attemptsTo(SearchInformationOnGoogle.WhitThisButton());
     }
 
-    @Then("^I go to the search results page$")
+   @Then("^I go to the search results page$")
     public void i_go_to_the_search_results_page() {
-        theActorInTheSpotlight().should(GivenWhenThen.seeThat(
-        ShowTheResultsSearchQuestion.text(),equalTo(true)
-        ));
+      theActorInTheSpotlight().should(GivenWhenThen.seeThat(
+      ShowTheResultsSearchQuestion.text()
+      ).orComplainWith(ShowTheResultsSearchException.class,ShowTheResultsSearchException.MESSAGE_RESULT_SEARCH));
     }
 
-    @Then("^the first result is “The Name of the Wind - Patrick Rothfuss”$")
+    @Then("^the first result is \"The Name of the Wind - Patrick Rothfuss\"$")
     public void the_first_result_is_The_Name_of_the_Wind_Patrick_Rothfuss() {
         theActorInTheSpotlight().should(GivenWhenThen.seeThat(
         ShowTheResultsWordQuestion.ReturnWord()).orComplainWith(
         ShowTheResultsWordException.class,ShowTheResultsWordException.MESSAGE_WORD_SEARCH));
     }
-/*
+
     @When("^I click on the first result link$")
     public void i_click_on_the_first_result_link() {
-
+         theActorInTheSpotlight().attemptsTo(OpenFirstResult.GivingClickHere());
     }
-
+/*
     @Then("^I go to the “Patrick Rothfuss - The Books” page$")
     public void i_go_to_the_Patrick_Rothfuss_The_Books_page() {
 
+    }*/
+
+    /*@When("^I click on the first result link$")
+    public void iClickOnTheFirstResultLink() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
     }
 
-    @When("^I type “The name of the w” into the search field$")
-    public void i_type_The_name_of_the_w_into_the_search_field() {
 
+    @Then("^I go to the “Patrick Rothfuss - The Books” page$")
+    public void iGoToThePatrickRothfussTheBooksPage() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
     }
 
     @When("^the suggestions list is displayed$")
-    public void the_suggestions_list_is_displayed() {
-
+    public void theSuggestionsListIsDisplayed() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
     }
 
     @When("^I click on the first suggestion in the list$")
-    public void i_click_on_the_first_suggestion_in_the_list() {
+    public void iClickOnTheFirstSuggestionInTheList() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
 
+    @Then("^the first result is “The Name of the Wind - Patrick Rothfuss”$")
+    public void theFirstResultIsTheNameOfTheWindPatrickRothfuss() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
     }*/
+
 }
