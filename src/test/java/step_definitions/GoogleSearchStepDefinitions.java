@@ -68,12 +68,11 @@ public class GoogleSearchStepDefinitions {
 
     }
 
-    /*@When("^I click on the first result link$")
+    @When("^I click on the first result link$")
     public void iClickOnTheFirstResultLink() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
 
+    }
+/*
 
     @Then("^I go to the “Patrick Rothfuss - The Books” page$")
     public void iGoToThePatrickRothfussTheBooksPage() {
