@@ -62,11 +62,11 @@ public class GoogleSearchStepDefinitions {
     public void i_click_on_the_first_result_link() {
          theActorInTheSpotlight().attemptsTo(OpenFirstResult.GivingClickHere());
     }
-/*
+
     @Then("^I go to the “Patrick Rothfuss - The Books” page$")
     public void i_go_to_the_Patrick_Rothfuss_The_Books_page() {
 
-    }*/
+    }
 
     /*@When("^I click on the first result link$")
     public void iClickOnTheFirstResultLink() {
